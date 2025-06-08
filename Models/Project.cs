@@ -14,6 +14,6 @@ namespace ProjectBoardApp.Models
         [StringLength(500)]
         public string Description { get; set; }
 
-        public ICollection<TaskItem> Tasks { get; set; } // Navigation property
+        public ICollection<TaskItem> Tasks { get; set; } = new List<TaskItem>();
     }
 }

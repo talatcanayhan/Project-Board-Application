@@ -14,7 +14,7 @@ namespace ProjectBoardApp.Controllers
         public ProjectsController(ApplicationDbContext context)
         {
             _context = context;
-         }
+        }
 
         // GET: Projects
         public async Task<IActionResult> Index()
@@ -27,8 +27,8 @@ namespace ProjectBoardApp.Controllers
         {
             if (id == null)
             {
-                  return NotFound();
-}
+                return NotFound();
+            }
 
             var project = await _context.Projects
                 .Include(p => p.Tasks) // Include tasks when viewing project details
@@ -52,8 +52,17 @@ namespace ProjectBoardApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Description")] Project project)
         {
+            Console.WriteLine("Reached to HttpPost");
+            foreach (var item in ModelState.Values)
+            {
+                foreach (var error in item.Errors)
+                {
+                    Console.WriteLine(error.ErrorMessage);
+                }
+            } 
             if (ModelState.IsValid)
             {
+                Console.WriteLine("Inside ModelState.isValid");
                 _context.Add(project);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -134,8 +143,11 @@ namespace ProjectBoardApp.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var project = await _context.Projects.FindAsync(id);
-            _context.Projects.Remove(project);
-            await _context.SaveChangesAsync();
+            if (project != null)
+            {
+                _context.Projects.Remove(project);
+                await _context.SaveChangesAsync();
+            }
             return RedirectToAction(nameof(Index));
         }
 
