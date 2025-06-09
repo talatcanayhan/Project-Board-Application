@@ -1,17 +1,30 @@
-# I used https://github.com/github/gitignore/blob/main/VisualStudio.gitignore. 
-# Visual Studio 2015+
-.vs/
-*.suo
-*.user
-*.sln.docstates
+# Visual Studio
+.vs/                   # Visual Studio solution user options
+*.suo                  # Solution User Options file
+*.user                 # User-specific project settings
+*.pdb                  # Program Database files (debug symbols)
+*.orig                 # Temporary merge files
+*.nupkg                # NuGet package files
+*.resharper            # ReSharper files
+*.bak                  # Backup files
 
 # Build results
-[Dd]ebug/
-[Rr]elease/
-[Bb]in/
-[Oo]bj/
+[Bb]in/                # Compiled binaries
+[Oo]bj/                # Intermediate build output
+[Pp]ublish/            # Output from dotnet publish
+artifacts/             # Potential build artifacts directory
 
-# Packages
-packages/
-*.nupkg
-*.snupkg
+# Package manager files
+node_modules/          # If you're using Node.js packages (e.g., for frontend builds)
+npm-debug.log* # npm debug logs
+yarn-debug.log* # yarn debug logs
+yarn-error.log* # yarn error logs
+
+# User secrets and local configuration
+appsettings.Development.json # Often contains local-only connection strings or settings
+appsettings.Production.json  # If used for secrets, though environment variables are better for Docker
+secrets.json                 # **CRITICAL:** This file stores local user secrets and should NEVER be committed
+
+# OS generated files
+.DS_Store              # macOS folder attribute files
+Thumbs.db              # Windows thumbnail cache files
