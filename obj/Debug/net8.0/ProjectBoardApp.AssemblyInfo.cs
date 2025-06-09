@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("9e7b16c1-2991-4956-b3fd-a50596f21e54")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProjectBoardApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+311c86e0faf4854ac34c85def9cb94dad85c85ee")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProjectBoardApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProjectBoardApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
